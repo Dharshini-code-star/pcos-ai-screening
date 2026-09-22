@@ -1,0 +1,55 @@
+{
+  "model_version": "ultrasound-v1",
+  "architecture": "EfficientNetB0 (frozen ImageNet base) -> GAP -> Dense(128) -> Dropout(0.3) -> Dense(1, sigmoid)",
+  "image_size": [
+    224,
+    224
+  ],
+  "positive_class": "infected",
+  "dataset": "BTX24/PCOS-ultrasound-dataset (Hugging Face mirror of the Kaggle PCOS ultrasound data)",
+  "class_names": [
+    "infected",
+    "notinfected"
+  ],
+  "trained_at": "2026-09-07T11:29:53.169137+00:00",
+  "epochs_run": 7,
+  "held_out_test": {
+    "auroc": 1.0,
+    "accuracy": 1.0,
+    "brier": 2.3576212697662413e-06,
+    "confusion_matrix": [
+      [
+        238,
+        0
+      ],
+      [
+        0,
+        147
+      ]
+    ],
+    "n_test_images": 385
+  },
+  "limitations": "Research prototype \u2014 metrics are NOT evidence of PCOS detection ability. A non-anatomical baseline (image size and brightness only) reaches AUROC 1.000 on the same held-out split, showing the two class folders differ by acquisition source rather than only by anatomy. The dataset also has no patient identifiers, so splits are image-level and frames from one patient may span splits. Not clinically validated, not a medical device, and not a diagnosis.",
+  "shortcut_audit": {
+    "non_anatomical_baseline": {
+      "features": "image width, height, area, aspect ratio, mean brightness, brightness sd",
+      "test_auroc": 1.0,
+      "test_accuracy": 1.0
+    },
+    "exact_duplicate_hashes_across_splits": 0,
+    "per_class_geometry_train": {
+      "infected": {
+        "median_width": 300.0,
+        "median_height": 300.0,
+        "mean_brightness": 72.61816303361478
+      },
+      "notinfected": {
+        "median_width": 850.0,
+        "median_height": 578.0,
+        "mean_brightness": 52.91499901871655
+      }
+    },
+    "shortcut_detected": true,
+    "interpretation": "A model using only image geometry and brightness \u2014 no anatomy at all \u2014 reaches AUROC 1.000 on the same held-out split. The two class folders therefore differ systematically in acquisition/processing (resolution and brightness), so the CNN's near-perfect score is explained by that shortcut rather than by detecting ovarian morphology. These metrics must NOT be presented as evidence of PCOS detection ability or of real-world performance."
+  }
+}

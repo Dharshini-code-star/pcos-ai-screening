@@ -1,0 +1,458 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-brand-blush-50: var(--brand-blush-50);
+  --color-brand-blush-100: var(--brand-blush-100);
+  --color-brand-blush-200: var(--brand-blush-200);
+  --color-brand-pink-300: var(--brand-pink-300);
+  --color-brand-pink-400: var(--brand-pink-400);
+  --color-brand-mauve-500: var(--brand-mauve-500);
+  --color-brand-mauve-600: var(--brand-mauve-600);
+  --color-brand-mauve-700: var(--brand-mauve-700);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* PCOSense brand ramp — blush/mauve, used as accent only (see globals.css note). */
+  --brand-blush-50: #fdf6f9;
+  --brand-blush-100: #fbe9f0;
+  --brand-blush-200: #f6d3e2;
+  --brand-pink-300: #f0b0cb;
+  --brand-pink-400: #e28cb0;
+  --brand-mauve-500: #c85f8f;
+  --brand-mauve-600: #ab3e70;
+  --brand-mauve-700: #872f58;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.17 0.015 350);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.17 0.015 350);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.17 0.015 350);
+  --primary: var(--brand-mauve-600);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: var(--brand-blush-50);
+  --secondary-foreground: var(--brand-mauve-700);
+  --muted: #faf3f6;
+  --muted-foreground: oklch(0.5 0.01 340);
+  --accent: var(--brand-blush-100);
+  --accent-foreground: var(--brand-mauve-700);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.91 0.012 350);
+  --input: oklch(0.91 0.012 350);
+  --ring: var(--brand-pink-400);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.875rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: var(--brand-mauve-600);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: var(--brand-blush-100);
+  --sidebar-accent-foreground: var(--brand-mauve-700);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: var(--brand-pink-400);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: var(--brand-pink-400);
+  --primary-foreground: oklch(0.17 0.015 350);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: var(--brand-pink-400);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: var(--brand-pink-400);
+  --sidebar-primary-foreground: oklch(0.17 0.015 350);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: var(--brand-pink-400);
+}
+
+.bg-hero-gradient {
+  background: radial-gradient(120% 100% at 85% 15%, var(--brand-blush-100) 0%, transparent 55%),
+    radial-gradient(80% 80% at 0% 100%, var(--brand-blush-50) 0%, transparent 60%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ===========================================================================
+   Motion system
+   ===========================================================================
+   Purely additive. Nothing below changes layout, type, colour or spacing —
+   it only adds entrance, scroll-reveal and hover motion.
+
+   Two authoring hooks, both plain data attributes, so pages stay server
+   components: no wrapper elements and no client boundaries are needed to
+   animate a section.
+
+     data-animate        this element fades and slides up when it scrolls in
+     data-animate-group  each direct child does, staggered; the container
+                         itself never animates
+
+   ScrollReveal (components/shared/scroll-reveal.tsx) adds .is-visible via an
+   IntersectionObserver, and derives the stagger index from how many elements
+   enter together — so an element scrolling in alone never sits waiting behind
+   a stale DOM index.
+
+   Only opacity and transform are ever animated. Both are composited, so none
+   of this triggers layout or paint.
+   =========================================================================== */
+
+:root {
+  --motion-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --motion-duration: 620ms;
+  --motion-rise: 18px;
+  --motion-stagger: 75ms;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* clear the 4rem sticky header when jumping to an anchor */
+  scroll-padding-top: 5rem;
+}
+
+@keyframes pcos-rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--motion-rise), 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pcos-media-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pcos-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes pcos-page-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* --- Scroll reveal ------------------------------------------------------- */
+
+[data-animate],
+[data-animate-group] > *:not([data-animate-group]) {
+  opacity: 0;
+  transform: translate3d(0, var(--motion-rise), 0);
+  transition:
+    opacity var(--motion-duration) var(--motion-ease),
+    transform var(--motion-duration) var(--motion-ease);
+  transition-delay: calc(var(--anim-i, 0) * var(--motion-stagger));
+}
+
+[data-animate].is-visible,
+[data-animate-group] > .is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- First-paint entrances ---------------------------------------------- */
+
+/* Hero copy: each direct child rises in sequence, no JS involved. */
+.hero-enter > * {
+  animation: pcos-rise-in 700ms var(--motion-ease) both;
+}
+.hero-enter > *:nth-child(1) {
+  animation-delay: 80ms;
+}
+.hero-enter > *:nth-child(2) {
+  animation-delay: 160ms;
+}
+.hero-enter > *:nth-child(3) {
+  animation-delay: 240ms;
+}
+.hero-enter > *:nth-child(4) {
+  animation-delay: 320ms;
+}
+.hero-enter > *:nth-child(5) {
+  animation-delay: 400ms;
+}
+
+/* Hero visual: settles in, then breathes very slowly. The float starts only
+   once the entrance has finished, so the two never fight over transform. */
+.hero-media {
+  animation:
+    pcos-media-in 820ms var(--motion-ease) 200ms both,
+    pcos-float 9s ease-in-out 1100ms infinite;
+}
+
+/* Whole-page cross-fade between routes. Opacity only — the sections
+   underneath supply the movement. */
+.page-enter {
+  animation: pcos-page-in 380ms var(--motion-ease) both;
+}
+
+/* --- Hover motion -------------------------------------------------------
+   Declared after the reveal rules on purpose: a card that is both revealed
+   and hovered matches both at equal specificity, so source order decides. */
+
+.media-zoom {
+  transition: transform 600ms var(--motion-ease);
+}
+.media-zoom:hover {
+  transform: scale(1.025);
+}
+
+/* Tailwind v4 compiles its translate utilities to the `translate` property,
+   so using `transform` here composes with `active:translate-y-px` instead of
+   overriding it — hover lifts, press settles back. */
+[data-slot="button"]:not(:disabled):not([data-variant="link"]):not([data-variant="ghost"]):hover {
+  transform: translateY(-1px);
+}
+[data-slot="button"][data-variant="default"]:not(:disabled):hover {
+  box-shadow: 0 8px 18px -8px color-mix(in oklch, var(--primary) 55%, transparent);
+}
+
+[data-slot="card"],
+.card-lift {
+  transition:
+    transform 320ms var(--motion-ease),
+    box-shadow 320ms var(--motion-ease);
+}
+[data-slot="card"]:hover,
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -20px color-mix(in oklch, var(--brand-mauve-700) 55%, transparent);
+}
+
+.lucide-arrow-right,
+.lucide-chevron-right,
+.lucide-external-link {
+  transition: transform 260ms var(--motion-ease);
+}
+a:hover .lucide-arrow-right,
+a:hover .lucide-chevron-right,
+button:hover .lucide-arrow-right,
+button:hover .lucide-chevron-right {
+  transform: translateX(3px);
+}
+a:hover .lucide-external-link {
+  transform: translate(2px, -2px);
+}
+
+header nav a,
+footer a {
+  transition:
+    color 200ms var(--motion-ease),
+    background-color 200ms var(--motion-ease);
+}
+
+/* --- Ultrasound AI research visual --------------------------------------
+   Three SVG layers separated on the Z axis inside one perspective. The scene
+   drifts a few degrees, and because the layers sit at different depths that
+   rotation reads as parallax rather than as a spinning object.
+
+   The stage must not set `overflow`: it would flatten preserve-3d. The card
+   around it clips instead. */
+
+.usv-stage {
+  perspective: 900px;
+  perspective-origin: 50% 45%;
+}
+
+.usv-scene {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: usv-drift 22s ease-in-out infinite;
+}
+
+/* Neutral at both ends, so freezing the animation always lands square on. */
+@keyframes usv-drift {
+  0%,
+  100% {
+    transform: rotateX(3deg) rotateY(-4.5deg);
+  }
+  50% {
+    transform: rotateX(3deg) rotateY(4.5deg);
+  }
+}
+
+/* The base layer stays in flow so it sets the height the others overlay. */
+.usv-base {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translateZ(-26px);
+}
+
+.usv-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.usv-layer-mid {
+  transform: translateZ(2px);
+}
+.usv-layer-front {
+  transform: translateZ(24px);
+}
+
+/* --- Safety nets --------------------------------------------------------- */
+
+/* Scripting disabled: nothing can add .is-visible, so reveal everything. */
+@media (scripting: none) {
+  [data-animate],
+  [data-animate-group] > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* A section that has not scrolled into view must still print. */
+@media print {
+  [data-animate],
+  [data-animate-group] > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-animate],
+  [data-animate-group] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-enter > *,
+  .hero-media,
+  .page-enter,
+  .media-zoom:hover,
+  [data-slot="card"]:hover,
+  .card-lift:hover,
+  [data-slot="button"]:hover {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Loading spinners are the standard exception — freezing one removes the
+     only signal that work is still in progress. */
+  .animate-spin {
+    animation: spin 1s linear infinite !important;
+  }
+
+  /* The research visual keeps its static tilt — the depth is the design, the
+     drift is the motion. Only the drift goes. */
+  .usv-scene {
+    animation: none !important;
+    transform: rotateX(3deg) rotateY(-4.5deg) !important;
+  }
+}

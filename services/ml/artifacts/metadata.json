@@ -1,0 +1,55 @@
+{
+  "model_version": "v1",
+  "selected_model": "logistic_regression",
+  "feature_columns": [
+    "age",
+    "bmi",
+    "height_cm",
+    "weight_kg",
+    "cycle_regularity",
+    "period_duration_days",
+    "weight_gain",
+    "hair_growth",
+    "skin_darkening",
+    "hair_loss",
+    "pimples",
+    "fast_food",
+    "regular_exercise"
+  ],
+  "n_training_rows": 541,
+  "class_balance": {
+    "0": 364,
+    "1": 177
+  },
+  "cv_results": [
+    {
+      "name": "logistic_regression",
+      "auroc": 0.8744607735614536,
+      "accuracy": 0.8194444444444444,
+      "brier": 0.13572373337487104
+    },
+    {
+      "name": "gradient_boosting",
+      "auroc": 0.8654188296653751,
+      "accuracy": 0.8240740740740741,
+      "brier": 0.13166430166263077
+    }
+  ],
+  "held_out_test": {
+    "auroc": 0.8812785388127854,
+    "accuracy": 0.8715596330275229,
+    "brier": 0.11453730329047712,
+    "confusion_matrix": [
+      [
+        68,
+        5
+      ],
+      [
+        9,
+        27
+      ]
+    ],
+    "n_test_rows": 109
+  },
+  "limitations": "Trained on a single public dataset of 541 women from ten hospitals in Kerala, India (Kottarathil PCOS dataset). Not clinically validated, not representative of all populations, and not a diagnostic device. See services/ml/README.md."
+}

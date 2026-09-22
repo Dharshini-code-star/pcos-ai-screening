@@ -1,0 +1,107 @@
+{
+  "model_version": "v1",
+  "target": "pcos",
+  "features": [
+    {
+      "name": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "min": 15,
+      "max": 55,
+      "required": true,
+      "help": "Your current age in years."
+    },
+    {
+      "name": "height_cm",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "min": 120,
+      "max": 210,
+      "required": true,
+      "help": "Used with weight to calculate BMI."
+    },
+    {
+      "name": "weight_kg",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "min": 30,
+      "max": 150,
+      "required": true,
+      "help": "Used with height to calculate BMI."
+    },
+    {
+      "name": "cycle_regularity",
+      "label": "Menstrual cycle regularity",
+      "type": "boolean",
+      "true_label": "Irregular",
+      "false_label": "Regular",
+      "required": true,
+      "help": "Regular means your period arrives roughly the same number of days apart, cycle after cycle."
+    },
+    {
+      "name": "period_duration_days",
+      "label": "Period duration",
+      "type": "number",
+      "unit": "days",
+      "min": 1,
+      "max": 12,
+      "required": false,
+      "help": "How many days you typically bleed for, not the gap between periods."
+    },
+    {
+      "name": "weight_gain",
+      "label": "Recent unexplained weight gain",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "name": "hair_growth",
+      "label": "Excess hair growth (face/chest/back)",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "name": "skin_darkening",
+      "label": "Skin darkening (neck, underarms, groin)",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "name": "hair_loss",
+      "label": "Hair thinning or hair loss",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "name": "pimples",
+      "label": "Persistent acne/pimples",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "name": "fast_food",
+      "label": "Frequent fast food consumption",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "name": "regular_exercise",
+      "label": "Regular exercise",
+      "type": "boolean",
+      "required": false
+    }
+  ],
+  "min_required_fields_for_confidence": 3,
+  "engineered_features": [
+    "bmi"
+  ],
+  "excluded_from_model": [
+    "family_history \u2014 not present in the source dataset; do not fabricate it.",
+    "All hormone panels (AMH, FSH, LH, TSH, PRL, PRG, beta-HCG, RBS) \u2014 lab-only.",
+    "Follicle counts / sizes, endometrium thickness \u2014 ultrasound-only.",
+    "Blood pressure, pulse, respiratory rate, Hb \u2014 clinical-visit-only."
+  ]
+}

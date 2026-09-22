@@ -1,0 +1,25 @@
+{
+  "dataset": "BTX24/PCOS-ultrasound-dataset",
+  "classes": [
+    "infected",
+    "notinfected"
+  ],
+  "splits": {
+    "train": {
+      "saved": 1539,
+      "corrupted_skipped": 0,
+      "per_class": {
+        "infected": 634,
+        "notinfected": 905
+      }
+    },
+    "test": {
+      "saved": 385,
+      "corrupted_skipped": 0,
+      "per_class": {
+        "infected": 147,
+        "notinfected": 238
+      }
+    }
+  }
+}

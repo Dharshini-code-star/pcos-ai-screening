@@ -1,0 +1,24 @@
+.venv/
+__pycache__/
+*.pyc
+
+# Raw/derived dataset files — regenerate via scripts/prepare_dataset.py.
+# Not redistributing the third-party source file directly in the repo.
+data/*.xlsx
+data/prepared.csv
+
+# Trained artifacts ARE committed on purpose (small, and the deployed API
+# loads them directly rather than training at deploy time).
+!artifacts/
+
+# Ultrasound dataset — 1,924 third-party images. Regenerate with:
+#   python scripts/prepare_ultrasound.py
+# (manifest.json is kept: it records the actual verified per-class counts.)
+data/ultrasound/**
+!data/ultrasound/manifest.json
+
+# Ultrasound model artifacts. The .keras file is ~19 MB, too large to commit
+# alongside the small sklearn artifacts. Regenerate with:
+#   python scripts/train_ultrasound.py && python scripts/check_ultrasound_shortcut.py
+artifacts/ultrasound_model.keras
+artifacts/ultrasound_val_predictions.npz
